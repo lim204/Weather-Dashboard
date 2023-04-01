@@ -1,4 +1,12 @@
 *{
-    outline: red dashed 3px;
+    box-sizing: boder-box;
+    font-family:Arial, Helvetica, sans-serif;
 
+}
+
+nav {
+    font-size: 50px;
+    text-align: center;
+    background-image: radial-gradient(blue, darkblue); 
+    color:white;   
 }
