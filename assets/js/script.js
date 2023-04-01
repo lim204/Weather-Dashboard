@@ -31,7 +31,7 @@ function fetchWeather(city) {
                 .then(response => response.json())
                 .then(data => {
                     console.log(data)
-                    displayForcastWeather(data)
+                    displayForecastWeather(data)
                 })
         })
 }
@@ -48,10 +48,12 @@ function displayCurrentWeather(data) {
     document.getElementById('temp').textContent = temp
 
 }
-function displayForcastWeather(data) {
+
+function displayForecastWeather(data) {
     for (i = 3; i < data.list.length; i += 8) {
         // createElement
     }
 
 }
 searchWeather.addEventListener('click', handleSearchSummit)
+
