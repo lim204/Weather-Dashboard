@@ -1,7 +1,8 @@
 // console.log ('working')
 
 // var apiKey ='7ab439372a6b7834b1058543aced3bee'
-var apiKey = '182957f0fa2946d78cf6ff810703352b';
+var HOSTNAME = 'https://api.openweathermap.org/data/2.5';
+var API_KEY = '182957f0fa2946d78cf6ff810703352b';
 
 var searchWeather = document.querySelector('#searchweather');
 var searchInput = document.querySelector('input');
@@ -17,7 +18,7 @@ function handleSearchSummit() {
 }
 
 function fetchWeather(city) {
-    var currentUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&q=${city}&units=imperial`
+    var currentUrl = `${HOSTNAME}/weather?appid=${API_KEY}&q=${city}&units=imperial`
 
     fetch(currentUrl)
         .then(response => response.json())
@@ -26,8 +27,8 @@ function fetchWeather(city) {
             displayCurrentWeather(data)
             var lat = data.coord.lat
             var lon = data.coord.lon
-            var forcastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`
-            fetch(forcastUrl)
+            var forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${API_KEY}`
+            fetch(forecastUrl)
                 .then(response => response.json())
                 .then(data => {
                     console.log(data)
@@ -50,8 +51,13 @@ function displayCurrentWeather(data) {
 }
 
 function displayForecastWeather(data) {
-    for (i = 3; i < data.list.length; i += 8) {
-        // createElement
+    var elId = 1;
+    for (i = 0; i < data.list.length; i += 8) {
+        var entry = data.list[i];
+
+        
+
+
     }
 
 }
