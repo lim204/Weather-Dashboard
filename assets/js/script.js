@@ -1,6 +1,5 @@
 // console.log ('working')
 
-// var apiKey ='7ab439372a6b7834b1058543aced3bee'
 var HOSTNAME = 'https://api.openweathermap.org/data/2.5';
 var API_KEY = '182957f0fa2946d78cf6ff810703352b';
 
@@ -25,28 +24,24 @@ function fetchWeather(city) {
         .then(data => {
             console.log(data)
             displayCurrentWeather(data)
-            var lat = data.coord.lat
-            var lon = data.coord.lon
-            var forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${API_KEY}`
-            fetch(forecastUrl)
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data)
-                    displayForecastWeather(data)
-                })
+            // var lat = data.coord.lat
+            // var lon = data.coord.lon
+
+        })
+    var forecastUrl = `${HOSTNAME}/forecast?q=${city}&units=imperial&appid=${API_KEY}`
+    fetch(forecastUrl)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            displayForecastWeather(data)
         })
 }
 function displayCurrentWeather(data) {
-    var temp = data.main.temp
-    var hum = data.main.humidity
-    var wind = data.wind.speed
-    var date = data.dt
-    var city = data.name
-    document.getElementById('city').textContent = city
-    document.getElementById('date').textContent = date
-    document.getElementById('wind').textContent = wind
-    document.getElementById('hum').textContent = hum
-    document.getElementById('temp').textContent = temp
+    document.getElementById('city').textContent = data.name
+    document.getElementById('date').textContent = data.dt
+    document.getElementById('wind').textContent = data.wind.speed
+    document.getElementById('hum').textContent = data.main.humidity
+    document.getElementById('temp').textContent = data.main.temp
 
 }
 
@@ -54,10 +49,11 @@ function displayForecastWeather(data) {
     var elId = 1;
     for (i = 0; i < data.list.length; i += 8) {
         var entry = data.list[i];
-
-        
-
-
+        document.getElementById('date-' + elId).textContent = entry.dt
+        document.getElementById('wind-' + elId).textContent = entry.wind.speed
+        document.getElementById('hum-' + elId).textContent = entry.main.humidity
+        document.getElementById('temp-' + elId).textContent = entry.main.temp
+        elId++;
     }
 
 }

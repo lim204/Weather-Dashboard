@@ -19,114 +19,94 @@
     <h1 class='text-center'>Weather Dashboard</h1>
   </header>
 
-  <main>
-    <div>
+  <main class="row">
+
+    <!-- START: Left Side -->
+    <div class="col-3">
+      <!-- Search Container -->
       <div>
+        <h2>Search for a City:</h2>
         <input type="text">
         <button id="searchweather">Submit</button>
       </div>
-    </div>
-    
-    <div>
-      <!-- container for weather Columns -->
-      <div class="col-md-8 container-left-columns">
-        <div class="row"></div>
-        <div class="card-body">
 
-          <div id="current">
-            <h3 id="city"></h3>
-            <h3 id="date"></h3>
-            <p id="temp"></p>
-            <p id="hum"></p>
-            <p id="wind"></p>
-          </div>
-        </div>
+      <!-- Recent Search -->
+    </div>
+    <!-- END: Left Side -->
+
+    <!-- START: Right Side -->
+    <div class="col">
+      <!-- container for current weather Columns -->
+
+      <div id="current" class="row">
+        <h3 id="city">fsfd</h3>
+        <h3 id="date">sdfds</h3>
+        <p id="temp">78</p>
+        <p id="hum">34</p>
+        <p id="wind">56</p>
       </div>
-    </div>
 
-    <div id="forcast"></div>
-
-    <!-- container for current conditions weather -->
-    <div class="card mb-3">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
-          This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-
-    <!-- 5 days forecast -->
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="card h-100 w-50">
+      <!-- Container for forecast -->
+      <div class="row">
+        <div class="card col-2 mx-2">
           <!-- <img src="..." class="card-img-top" alt="..."> -->
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+
             <h3 id="date-1">Day 1</h3>
-            <p id="temp"> temp F</p>
-            <p id="hum">Huminty</p>
-            <p id="wind">wind</p>
+            <p id="temp-1"> temp F</p>
+            <p id="hum-1">Huminty</p>
+            <p id="wind-1">wind</p>
           </div>
         </div>
-      </div>
 
-      <div class="col">
-        <div class="card h-100 w-50">
+        <div class="card col-2 mx-2">
           <!-- <img src="..." class="card-img-top" alt="..."> -->
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h3 id="date-2">Day 2</h3>
-            <p id="temp"> temp F</p>
-            <p id="hum">Huminty</p>
-            <p id="wind">wind</p>
+
+            <h3 id="date-2">Day 1</h3>
+            <p id="temp-2"> temp F</p>
+            <p id="hum-2">Huminty</p>
+            <p id="wind-2">wind</p>
           </div>
         </div>
-      </div>
 
-      <div class="col">
-        <div class="card h-100 w-50">
+        <div class="card col-2 mx-2">
           <!-- <img src="..." class="card-img-top" alt="..."> -->
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h3 id="date-3">Day 3</h3>
-            <p id="temp"> temp F</p>
-            <p id="hum">Huminty</p>
-            <p id="wind">wind</p>
+
+            <h3 id="date-3">Day 1</h3>
+            <p id="temp-3"> temp F</p>
+            <p id="hum-3">Huminty</p>
+            <p id="wind-3">wind</p>
           </div>
         </div>
-      </div>
 
-      <div class="col">
-        <div class="card h-100 w-50">
+        <div class="card col-2 mx-2">
           <!-- <img src="..." class="card-img-top" alt="..."> -->
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h3 id="date-4">Day 4</h3>
-            <p id="temp"> temp F</p>
-            <p id="hum">Huminty</p>
-            <p id="wind">wind</p>
+
+            <h3 id="date-4">Day 1</h3>
+            <p id="temp-4"> temp F</p>
+            <p id="hum-4">Huminty</p>
+            <p id="wind-4">wind</p>
           </div>
         </div>
-      </div>
 
-      <div class="col">
-        <div class="card h-100 w-50">
+        <div class="card col-2 mx-2">
           <!-- <img src="..." class="card-img-top" alt="..."> -->
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h3 id="date-5">Day 5</h3>
-            <p id="temp"> temp F</p>
-            <p id="hum">Huminty</p>
-            <p id="wind">wind</p>
+
+            <h3 id="date-5">Day 1</h3>
+            <p id="temp-5"> temp F</p>
+            <p id="hum-5">Huminty</p>
+            <p id="wind-5">wind</p>
           </div>
         </div>
       </div>
     </div>
-  </main>
+    <!-- END: Right Side -->
 
-  </div>
+  </main>
 
 
 
