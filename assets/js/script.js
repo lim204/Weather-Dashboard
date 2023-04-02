@@ -38,7 +38,7 @@ function fetchWeather(city) {
 }
 function displayCurrentWeather(data) {
     document.getElementById('city').textContent = data.name
-    document.getElementById('date').textContent = data.dt
+    document.getElementById('date').textContent = convertEpoch(data.dt)
     document.getElementById('wind').textContent = data.wind.speed
     document.getElementById('hum').textContent = data.main.humidity
     document.getElementById('temp').textContent = data.main.temp
@@ -49,13 +49,25 @@ function displayForecastWeather(data) {
     var elId = 1;
     for (i = 0; i < data.list.length; i += 8) {
         var entry = data.list[i];
-        document.getElementById('date-' + elId).textContent = entry.dt
+        document.getElementById('date-' + elId).textContent = convertEpoch(entry.dt)
         document.getElementById('wind-' + elId).textContent = entry.wind.speed
         document.getElementById('hum-' + elId).textContent = entry.main.humidity
-        document.getElementById('temp-' + elId).textContent = entry.main.temp
+        document.getElementById('temp-' + elId).textContent = entry.main.temp + " \u00B0F"
         elId++;
     }
 
 }
+
+function convertEpoch(unixEpoch) {
+    var timeInms = unixEpoch * 1000;
+    var dateObj = new Date (timeInms);
+    
+    var year = dateObj.getFullYear();
+    var month = ("0"+ (dateObj.getMonth ()+ 1)).slice(-2);
+    var day=("0" + dateObj.getDate()).slice(-2);
+
+    return (day + "/" + month + "/" + year);    
+}
+
 searchWeather.addEventListener('click', handleSearchSummit)
 
