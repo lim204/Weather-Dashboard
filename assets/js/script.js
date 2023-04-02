@@ -39,9 +39,9 @@ function fetchWeather(city) {
 function displayCurrentWeather(data) {
     document.getElementById('city').textContent = data.name
     document.getElementById('date').textContent = convertEpoch(data.dt)
-    document.getElementById('wind').textContent = data.wind.speed
-    document.getElementById('hum').textContent = data.main.humidity
-    document.getElementById('temp').textContent = data.main.temp
+    document.getElementById('wind').textContent = "Wind:" + data.wind.speed + " MPH"
+    document.getElementById('hum').textContent = "Humidity: " + data.main.humidity + " \u0025"
+    document.getElementById('temp').textContent = "Temp: " + data.main.temp + " \u00B0F"
 
 }
 
@@ -50,9 +50,9 @@ function displayForecastWeather(data) {
     for (i = 0; i < data.list.length; i += 8) {
         var entry = data.list[i];
         document.getElementById('date-' + elId).textContent = convertEpoch(entry.dt)
-        document.getElementById('wind-' + elId).textContent = entry.wind.speed
-        document.getElementById('hum-' + elId).textContent = entry.main.humidity
-        document.getElementById('temp-' + elId).textContent = entry.main.temp + " \u00B0F"
+        document.getElementById('wind-' + elId).textContent = "Wind: " + entry.wind.speed + " MPH"
+        document.getElementById('hum-' + elId).textContent = "Humidity: " + entry.main.humidity + " \u0025"
+        document.getElementById('temp-' + elId).textContent = "Temp: " + entry.main.temp + " \u00B0F" 
         elId++;
     }
 
@@ -66,8 +66,13 @@ function convertEpoch(unixEpoch) {
     var month = ("0"+ (dateObj.getMonth ()+ 1)).slice(-2);
     var day=("0" + dateObj.getDate()).slice(-2);
 
-    return (day + "/" + month + "/" + year);    
+    return (month + "/" + day + "/" + year);    
 }
 
 searchWeather.addEventListener('click', handleSearchSummit)
+
+function getInfo(){
+     var currentSearchList =  null
+  
+}
 
