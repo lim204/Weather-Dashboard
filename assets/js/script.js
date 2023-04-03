@@ -94,7 +94,7 @@ function getWeatherHistory() {
 
         var cityName = localStorage.key(i);
         var cityEl = document.createElement("div")
-        cityEl.setAttribute("class", "p-3 mb-2 bg-primary");
+        cityEl.setAttribute("class", "p-2 mb-2 bg-secondary text-center");
         cityEl.addEventListener('click', handlerSearchHistoryClick);
         var textEl = document.createTextNode(cityName);
         cityEl.appendChild(textEl);
@@ -103,11 +103,6 @@ function getWeatherHistory() {
 }
 
 
-// function searchWeatherHistory (){
-
-//     localStorage.setItem(".city");
-//     return localStorage.length;
-// }
 
 var searchWeather = document.querySelector('#searchweather');
 var searchInput = document.querySelector('input');
