@@ -3,9 +3,6 @@
 var HOSTNAME = 'https://api.openweathermap.org/data/2.5';
 var API_KEY = '182957f0fa2946d78cf6ff810703352b';
 
-var searchWeather = document.querySelector('#searchweather');
-var searchInput = document.querySelector('input');
-
 function handleSearchSummit() {
     if (!searchInput.value) {
         return;
@@ -13,30 +10,47 @@ function handleSearchSummit() {
 
     var city = searchInput.value
     fetchWeather(city)
-    searchInput.value = ""
+        .then(() => {
+            localStorage.setItem(city, "1")
+            getWeatherHistory();
+        })
+        .catch((err) => console.log(err))
+    
+    // Clear input field value once the user submits.
+    searchInput.value = "";
+}
+
+function handlerSearchHistoryClick(e) {
+    var city = e.target.textContent;
+    fetchWeather(city);
 }
 
 function fetchWeather(city) {
     var currentUrl = `${HOSTNAME}/weather?appid=${API_KEY}&q=${city}&units=imperial`
 
-    fetch(currentUrl)
+    return fetch(currentUrl)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
-            displayCurrentWeather(data)
-            // var lat = data.coord.lat
-            // var lon = data.coord.lon
+            if (data.cod === 200) {
 
+                displayCurrentWeather(data)
+    
+                var forecastUrl = `${HOSTNAME}/forecast?q=${city}&units=imperial&appid=${API_KEY}`
+                fetch(forecastUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        displayForecastWeather(data)
+                    })
+            } else {
+                throw Error(data.message);
+            }
         })
-    var forecastUrl = `${HOSTNAME}/forecast?q=${city}&units=imperial&appid=${API_KEY}`
-    fetch(forecastUrl)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            displayForecastWeather(data)
-        })
+
+
 }
 function displayCurrentWeather(data) {
+    var element = document.querySelector('#weather-info');
+    element.classList.remove('visually-hidden');
     document.getElementById('city').textContent = data.name
     document.getElementById('date').textContent = convertEpoch(data.dt)
     document.getElementById('wind').textContent = "Wind:" + data.wind.speed + " MPH"
@@ -69,10 +83,33 @@ function convertEpoch(unixEpoch) {
     return (month + "/" + day + "/" + year);    
 }
 
-searchWeather.addEventListener('click', handleSearchSummit)
+function getWeatherHistory() {
+    var searchHistoryEl = document.getElementById('search-history');
 
-function getInfo(){
-     var currentSearchList =  null
-  
+    while (searchHistoryEl.firstChild) {
+        searchHistoryEl.removeChild(searchHistoryEl.firstChild);
+    }
+
+    for (var i = 0; i < localStorage.length; i++){
+
+        var cityName = localStorage.key(i);
+        var cityEl = document.createElement("div")
+        cityEl.setAttribute("class", "p-3 mb-2 bg-primary");
+        cityEl.addEventListener('click', handlerSearchHistoryClick);
+        var textEl = document.createTextNode(cityName);
+        cityEl.appendChild(textEl);
+        searchHistoryEl.appendChild(cityEl);
+    }
 }
 
+
+// function searchWeatherHistory (){
+
+//     localStorage.setItem(".city");
+//     return localStorage.length;
+// }
+
+var searchWeather = document.querySelector('#searchweather');
+var searchInput = document.querySelector('input');
+searchWeather.addEventListener('click', handleSearchSummit);
+getWeatherHistory();
