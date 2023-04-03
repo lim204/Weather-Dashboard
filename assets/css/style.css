@@ -1,22 +1,33 @@
 *{
     box-sizing: boder-box;
     font-family:Arial, Helvetica, sans-serif;
-    font-size:25px
+    font-size: 14px;
 }
 
-. {
-    font-size: 50px;
-    text-align: center;
-    background-image: radial-gradient(blue, darkblue); 
-    color:white;   
-}
 .card{
-    background-color: rgb(39, 123, 241);
+    background-color: rgb(29 50 81);;
     color: white;   
 }
 #searchweather{
-    background-color: lightgray;
-    font-size: 25px;
-     
+    background-color: rgb(128, 163, 203);
+    font-size: 15px;
+    
+}
+button {
+    color:aliceblue;
+    border-radius: 10px;
+    width: 95%;   
+    margin: 10px
+    
+}
+input{
+    border-radius: 10px;
+    margin: 9px;
+    width: 95%;  
+}
+#search-history{
+    border-radius: 10px;
+    margin: 9px;
+    width: 95%; 
 }
 
