@@ -1,5 +1,3 @@
-// console.log ('working')
-
 var HOSTNAME = 'https://api.openweathermap.org/data/2.5';
 var API_KEY = '182957f0fa2946d78cf6ff810703352b';
 
@@ -45,9 +43,8 @@ function fetchWeather(city) {
                 throw Error(data.message);
             }
         })
-
-
 }
+
 function displayCurrentWeather(data) {
     var element = document.querySelector('#weather-info');
     element.classList.remove('visually-hidden');
@@ -69,7 +66,6 @@ function displayForecastWeather(data) {
         document.getElementById('temp-' + elId).textContent = "Temp: " + entry.main.temp + " \u00B0F" 
         elId++;
     }
-
 }
 
 function convertEpoch(unixEpoch) {
