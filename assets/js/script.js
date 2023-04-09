@@ -47,9 +47,12 @@ function fetchWeather(city) {
 
 function displayCurrentWeather(data) {
     var element = document.querySelector('#weather-info');
+    var iconUrl = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`
     element.classList.remove('visually-hidden');
+
     document.getElementById('city').textContent = data.name
     document.getElementById('date').textContent = convertEpoch(data.dt)
+    document.getElementById('fImg').setAttribute ("src",iconUrl)
     document.getElementById('wind').textContent = "Wind:" + data.wind.speed + " MPH"
     document.getElementById('hum').textContent = "Humidity: " + data.main.humidity + " \u0025"
     document.getElementById('temp').textContent = "Temp: " + data.main.temp + " \u00B0F"
@@ -58,9 +61,11 @@ function displayCurrentWeather(data) {
 
 function displayForecastWeather(data) {
     var elId = 1;
-    for (i = 0; i < data.list.length; i += 8) {
+    for (i = 6; i < data.list.length; i += 8) {
         var entry = data.list[i];
+        var iconUrl = `https://openweathermap.org/img/w/${entry.weather[0].icon}.png`
         document.getElementById('date-' + elId).textContent = convertEpoch(entry.dt)
+        document.getElementById('fImg-'+ elId).setAttribute ("src",iconUrl)
         document.getElementById('wind-' + elId).textContent = "Wind: " + entry.wind.speed + " MPH"
         document.getElementById('hum-' + elId).textContent = "Humidity: " + entry.main.humidity + " \u0025"
         document.getElementById('temp-' + elId).textContent = "Temp: " + entry.main.temp + " \u00B0F" 
