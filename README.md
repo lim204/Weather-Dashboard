@@ -13,7 +13,7 @@ them is again presented with current and future conditions for that city.
 ## Screenshot
 ![screencapture-Weather-Dashboard](https://user-images.githubusercontent.com/125234173/229653836-b1824871-32fb-422c-aa5c-dc34c8e59b8e.png)
 
-## Link to Wather-Dashboard
+## Link to Weather-Dashboard
 [Deployed Link] (https://lim204.github.io/Weather-Dashboard/)
 
 
