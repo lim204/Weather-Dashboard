@@ -11,7 +11,7 @@ The purpuse of assignment is to create a Weather Dashboard application to find a
 them is again presented with current and future conditions for that city.
 
 ## Screenshot
-![screencapture-Weather-Dashboard](https://user-images.githubusercontent.com/125234173/229653836-b1824871-32fb-422c-aa5c-dc34c8e59b8e.png)
+![WeatherDashboard](https://user-images.githubusercontent.com/125234173/230749384-63527f1e-3ebc-4219-a32b-c45bdd4d162b.png)
 
 ## Link to Weather-Dashboard
 [Deployed Link] (https://lim204.github.io/Weather-Dashboard/)
